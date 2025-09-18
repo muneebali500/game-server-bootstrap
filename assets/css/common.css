@@ -1,0 +1,110 @@
+.ellipse {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  background: var(--bg-gradient);
+  z-index: -1;
+  filter: blur(60px);
+}
+
+.rectangle-1 {
+  position: absolute;
+  transform: rotate(38deg);
+  left: -34%;
+  top: 0px;
+  height: 65rem;
+  width: 75rem;
+  opacity: 3%;
+  z-index: 3;
+}
+.rectangle-2 {
+  position: absolute;
+  transform: rotate(38deg);
+  right: -34%;
+  top: 0px;
+  height: 65rem;
+  width: 75rem;
+  opacity: 3%;
+  z-index: 3;
+}
+
+#hero-common .breadcrumb-item + .breadcrumb-item::before {
+  color: var(--clr-gray);
+}
+
+#hero-common .spread-gradient {
+  position: absolute;
+  bottom: -16%;
+  height: 8rem;
+  width: 100%;
+  background-image: linear-gradient(#00001000, #8f37ff);
+  filter: blur(40px);
+}
+
+#common-content {
+  min-height: 22rem;
+  position: relative;
+  padding-top: 2rem;
+}
+
+/*//////////////////// FAQ SECTION ////////////////////////////*/
+/* /////////////////////////////////////////////////////////// */
+.accordion-item {
+  background-color: transparent !important;
+  border: 2px solid #ffffff3d !important;
+  border-radius: 64px !important;
+  padding: 3rem;
+}
+
+.accordion-button {
+  color: white !important;
+  background-color: transparent !important;
+  font-weight: 600;
+  box-shadow: none !important;
+  font-size: clamp(16px, 2.2vw, 2.6rem);
+}
+
+.accordion-body {
+  font-size: clamp(14px, 1.3vw, 2rem);
+  line-height: 1.5;
+}
+
+.accordion-button:not(.collapsed) {
+  color: white !important;
+}
+
+.accordion-button::after {
+  content: "+";
+  background-image: none !important;
+  font-size: clamp(24px, 2.2vw, 4rem);
+  margin-top: -3rem;
+  font-weight: 300;
+  transform: rotate(0deg) !important;
+}
+
+.accordion-button:not(.collapsed)::after {
+  content: "×";
+  background-image: none !important;
+  font-size: clamp(24px, 2.2vw, 2.6rem);
+  line-height: 0.5;
+  transform: rotate(0deg) !important;
+}
+
+.faq-number {
+  font-size: clamp(16px, 2.2vw, 2.6rem);
+}
+
+.accordion-item:has(.collapse.show) {
+  border: 1px solid #8a38f5 !important;
+}
+
+@media (max-width: 767px) {
+  .accordion-item {
+    border-radius: 40px !important;
+    padding: 1rem;
+  }
+}

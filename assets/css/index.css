@@ -1,0 +1,260 @@
+header {
+  height: 15rem;
+}
+
+.logo {
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+  padding: 6px;
+  background-image: var(--gradient-primary);
+  border: var(--border);
+  filter: drop-shadow(8px);
+}
+
+/* ///////////////////// HERO HOME STYLE ////////////// */
+#hero-home {
+  min-height: 70rem;
+  position: relative;
+  padding: 12rem 0;
+}
+
+#hero-home .content-wrap {
+  position: relative;
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 2rem 0;
+  z-index: 4;
+}
+
+#hero-home .content-wrap::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 130%;
+  height: 90%;
+  background: var(--bg-gradient);
+  z-index: -1;
+  filter: blur(60px);
+}
+
+#hero-home .section-subheading {
+  margin-bottom: -4rem;
+}
+
+#hero-home .hero-desc {
+  font-size: clamp(17px, 1.4vw, 25px);
+  max-width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.5;
+}
+
+#hero-home img {
+  position: absolute;
+}
+
+#hero-home .icon-1 {
+  top: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#hero-home .icon-2 {
+  top: 1rem;
+  right: 2rem;
+}
+#hero-home .icon-3 {
+  top: 4rem;
+  left: 2rem;
+}
+#hero-home .icon-4 {
+  bottom: 3rem;
+  left: 47%;
+  transform: translateX(-47%);
+}
+#hero-home .icon-5 {
+  top: 20rem;
+  right: 20rem;
+}
+#hero-home .pic-1 {
+  bottom: 0;
+  left: 0;
+  width: 40rem;
+  height: 30rem;
+}
+#hero-home .pic-2 {
+  bottom: 0;
+  right: 0;
+  width: 55rem;
+  height: 34rem;
+}
+
+.spread-shadow {
+  position: absolute;
+  bottom: 0;
+  height: 15rem;
+  width: 100%;
+  background-image: linear-gradient(#00001000, #000010);
+}
+
+/* ///////////////////// GAMES SECTION STYLE ////////////// */
+#games-home {
+  position: relative;
+}
+
+#games-home::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 70%;
+  background: var(--bg-gradient);
+  z-index: -1;
+  filter: blur(60px);
+}
+
+#games-home .camera-pic {
+  opacity: 13%;
+  width: 75rem;
+  height: 65rem;
+  transform: rotate(-160deg);
+  right: -36rem;
+  mix-blend-mode: screen;
+  z-index: -1;
+}
+
+#games-home .icon-1 {
+  left: 36%;
+  top: 16%;
+}
+
+#games-home .icon-2 {
+  top: 35%;
+  right: 1%;
+}
+
+#games-home .icon-3 {
+  top: 4%;
+  right: 8%;
+}
+
+/* ////////////////// TESTIMONIALS SECTION STYLE //////////// */
+#testimonials-home {
+}
+
+#testimonials-home .card-wrapper {
+  border: 2px solid #ffffff3d;
+  box-shadow: 0 0 9.99px #ffffff0f;
+}
+
+#testimonials-home .card-top {
+}
+
+#testimonials-home .client-pic {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  background-color: #e0c9d8;
+  overflow: hidden;
+}
+
+#testimonials-home .client-name {
+}
+
+#testimonials-home .client-username {
+}
+
+#testimonials-home .card-body {
+}
+
+#testimonials-home .client-desc {
+}
+
+#testimonials-home .card-bottom {
+}
+
+/* //////////////////// FOOTER STYLES ///////////////// */
+/* ///////////////////////////////////////////////////// */
+footer {
+  position: relative;
+  overflow: hidden;
+  padding: 8rem 0 4rem;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 60%;
+  background: var(--bg-gradient);
+  z-index: -1;
+  filter: blur(60px);
+}
+
+footer li a {
+  color: var(--clr-gray);
+  text-decoration: none;
+  font-size: 1.4rem;
+  padding: 0.8rem 0;
+  display: inline-block;
+  transition: 0.3s linear;
+}
+
+footer li a:hover {
+  color: #fff;
+}
+
+footer .nav-title {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+footer .copyright-text {
+  border-top: 2.33px solid transparent;
+  border-image: linear-gradient(#2a1e3f, #ffffff, #2a1e3f);
+  border-image-slice: 1;
+}
+
+footer .camera-pic {
+  opacity: 5%;
+  width: 80rem;
+  height: 65rem;
+  top: 56%;
+  left: -5%;
+  transform: scaleX(2.3);
+  mix-blend-mode: screen;
+  z-index: -1;
+}
+
+@media (max-width: 991px) {
+  #hero-home .pic-1 {
+    width: 32rem;
+    height: 22rem;
+  }
+
+  #hero-home .pic-2 {
+    width: 37rem;
+    height: 26rem;
+  }
+}
+
+@media (max-width: 639px) {
+  #hero-home .pic-1 {
+    width: 20rem;
+    height: 15rem;
+  }
+
+  #hero-home .pic-2 {
+    width: 20rem;
+    height: 16rem;
+  }
+}
