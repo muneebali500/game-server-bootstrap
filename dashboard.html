@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Server Dashboard</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #0a0a0f;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        color: white;
+        overflow-x: hidden;
+      }
+
+      .dashboard {
+        display: flex;
+        min-height: 100vh;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        width: 250px;
+        background: #1a1a1f;
+        padding: 20px 0;
+        border-right: 1px solid #2a2a35;
+      }
+
+      .welcome-text {
+        padding: 0 20px 30px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .nav-menu {
+        list-style: none;
+      }
+
+      .nav-item {
+        margin-bottom: 8px;
+      }
+
+      .nav-link {
+        display: flex;
+        align-items: center;
+        padding: 12px 20px;
+        color: #9ca3af;
+        text-decoration: none;
+        font-size: 14px;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link.active {
+        background: #6366f1;
+        color: white;
+        border-radius: 8px;
+        margin: 0 12px;
+      }
+
+      .nav-link:hover:not(.active) {
+        background: #2a2a35;
+        color: white;
+      }
+
+      .nav-icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 12px;
+      }
+
+      .logout-btn {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        background: none;
+        border: none;
+        color: #ef4444;
+        font-size: 14px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+      }
+
+      /* Main Content */
+      .main-content {
+        flex: 1;
+        padding: 20px;
+      }
+
+      /* Header */
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+      }
+
+      .header-left h1 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .header-icon {
+        width: 40px;
+        height: 40px;
+        background: #2a2a35;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .notification-badge {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        width: 16px;
+        height: 16px;
+        background: #ef4444;
+        border-radius: 50%;
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .user-profile {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .user-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #6366f1;
+      }
+
+      .user-info h3 {
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .user-info p {
+        font-size: 12px;
+        color: #9ca3af;
+      }
+
+      /* Content Grid */
+      .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 30px;
+      }
+
+      .left-column {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      /* Server Cards */
+      .server-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      .server-card {
+        background: #1a1a1f;
+        border-radius: 12px;
+        padding: 20px;
+        border: 1px solid #2a2a35;
+      }
+
+      .server-card-header {
+        display: flex;
+        justify-content: between;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .server-icon {
+        width: 40px;
+        height: 40px;
+        background: #6366f1;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 12px;
+      }
+
+      .server-info h3 {
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+
+      .server-info p {
+        font-size: 12px;
+        color: #9ca3af;
+      }
+
+      .status-badge {
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+        margin-left: auto;
+      }
+
+      .status-online {
+        background: #10b981;
+        color: white;
+      }
+
+      .status-offline {
+        background: #ef4444;
+        color: white;
+      }
+
+      /* Server List */
+      .server-list {
+        background: #1a1a1f;
+        border-radius: 12px;
+        padding: 20px;
+        border: 1px solid #2a2a35;
+      }
+
+      .server-list h3 {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+
+      .server-list-header {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #2a2a35;
+        margin-bottom: 15px;
+      }
+
+      .server-list-header span {
+        font-size: 12px;
+        color: #9ca3af;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .server-row {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 20px;
+        padding: 12px 0;
+        align-items: center;
+        border-bottom: 1px solid #2a2a35;
+      }
+
+      .server-row:last-child {
+        border-bottom: none;
+      }
+
+      .usage-bar {
+        width: 100%;
+        height: 6px;
+        background: #2a2a35;
+        border-radius: 3px;
+        overflow: hidden;
+      }
+
+      .usage-fill {
+        height: 100%;
+        background: #6366f1;
+        border-radius: 3px;
+      }
+
+      /* Right Column */
+      .right-column {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      /* Usage Graph */
+      .usage-graph {
+        background: #1a1a1f;
+        border-radius: 12px;
+        padding: 20px;
+        border: 1px solid #2a2a35;
+      }
+
+      .usage-graph h3 {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+
+      .chart-container {
+        height: 200px;
+        position: relative;
+        margin-bottom: 15px;
+      }
+
+      .chart-dates {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: #9ca3af;
+      }
+
+      /* Quick Actions */
+      .quick-actions {
+        background: #1a1a1f;
+        border-radius: 12px;
+        padding: 20px;
+        border: 1px solid #2a2a35;
+      }
+
+      .quick-actions h3 {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+
+      .action-item {
+        display: flex;
+        align-items: center;
+        padding: 12px 0;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+      }
+
+      .action-item:hover {
+        opacity: 0.7;
+      }
+
+      .action-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 12px;
+      }
+
+      .action-1 .action-icon {
+        background: #3b82f6;
+      }
+      .action-2 .action-icon {
+        background: #10b981;
+      }
+      .action-3 .action-icon {
+        background: #f59e0b;
+      }
+      .action-4 .action-icon {
+        background: #ef4444;
+      }
+
+      .action-text {
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      /* Chart SVG */
+      .chart-svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      @media (max-width: 1024px) {
+        .content-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .server-cards {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .dashboard {
+          flex-direction: column;
+        }
+
+        .sidebar {
+          width: 100%;
+          order: 2;
+        }
+
+        .main-content {
+          order: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dashboard">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="welcome-text">Welcome Back , Seif</div>
+
+        <nav>
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="#" class="nav-link active">
+                <span class="nav-icon">🏠</span>
+                Dashboard
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <span class="nav-icon">🖥️</span>
+                Servers
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <button class="logout-btn">◀ Logout</button>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+          <div class="header-left">
+            <h1>Welcome Back, Seif</h1>
+          </div>
+          <div class="header-right">
+            <div class="header-icon">🛒</div>
+            <div class="header-icon">
+              🔔
+              <span class="notification-badge">1</span>
+            </div>
+            <div class="user-profile">
+              <div class="user-avatar"></div>
+              <div class="user-info">
+                <h3>Seif Hossam</h3>
+                <p>Free Account</p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="content-grid">
+          <!-- Left Column -->
+          <div class="left-column">
+            <!-- Server Status Cards -->
+            <div class="server-cards">
+              <div class="server-card">
+                <div class="server-card-header">
+                  <div style="display: flex; align-items: center">
+                    <div class="server-icon">A</div>
+                    <div class="server-info">
+                      <h3>APK Servers</h3>
+                      <p>3 Active Servers</p>
+                    </div>
+                  </div>
+                  <span class="status-badge status-online">Online</span>
+                </div>
+              </div>
+
+              <div class="server-card">
+                <div class="server-card-header">
+                  <div style="display: flex; align-items: center">
+                    <div class="server-icon" style="background: #10b981">●</div>
+                    <div class="server-info">
+                      <h3>Running</h3>
+                      <p>2 Online</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="server-card">
+                <div class="server-card-header">
+                  <div style="display: flex; align-items: center">
+                    <div class="server-icon" style="background: #ef4444">●</div>
+                    <div class="server-info">
+                      <h3>Offline</h3>
+                      <p>1 Offline</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Server List -->
+            <div class="server-list">
+              <h3>My Servers</h3>
+
+              <div class="server-list-header">
+                <span>Name</span>
+                <span>Status</span>
+                <span>Usage</span>
+              </div>
+
+              <div class="server-row">
+                <span>APK Server</span>
+                <span class="status-badge status-online">Online</span>
+                <div class="usage-bar">
+                  <div class="usage-fill" style="width: 75%"></div>
+                </div>
+              </div>
+
+              <div class="server-row">
+                <span>APK Server</span>
+                <span class="status-badge status-online">Online</span>
+                <div class="usage-bar">
+                  <div class="usage-fill" style="width: 60%"></div>
+                </div>
+              </div>
+
+              <div class="server-row">
+                <span>APK Server</span>
+                <span class="status-badge status-online">Online</span>
+                <div class="usage-bar">
+                  <div class="usage-fill" style="width: 45%"></div>
+                </div>
+              </div>
+
+              <div class="server-row">
+                <span>APK Server</span>
+                <span class="status-badge status-online">Online</span>
+                <div class="usage-bar">
+                  <div class="usage-fill" style="width: 80%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div class="right-column">
+            <!-- Usage Graph -->
+            <div class="usage-graph">
+              <h3>Usage Graphs</h3>
+              <div class="chart-container">
+                <svg class="chart-svg" viewBox="0 0 280 160">
+                  <!-- Grid lines -->
+                  <defs>
+                    <pattern
+                      id="grid"
+                      width="40"
+                      height="32"
+                      patternUnits="userSpaceOnUse"
+                    >
+                      <path
+                        d="M 40 0 L 0 0 0 32"
+                        fill="none"
+                        stroke="#2a2a35"
+                        stroke-width="1"
+                      />
+                    </pattern>
+                  </defs>
+                  <rect width="280" height="160" fill="url(#grid)" />
+
+                  <!-- Chart lines -->
+                  <path
+                    d="M 10 120 Q 50 100 90 80 Q 130 60 170 70 Q 210 80 250 50 Q 270 40 280 30"
+                    fill="none"
+                    stroke="#6366f1"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M 10 140 Q 50 130 90 110 Q 130 90 170 100 Q 210 110 250 80 Q 270 70 280 60"
+                    fill="none"
+                    stroke="#10b981"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M 10 100 Q 50 90 90 70 Q 130 50 170 60 Q 210 70 250 40 Q 270 30 280 20"
+                    fill="none"
+                    stroke="#3b82f6"
+                    stroke-width="2"
+                  />
+                </svg>
+              </div>
+              <div class="chart-dates">
+                <span>20</span>
+                <span>21</span>
+                <span>22</span>
+                <span>23</span>
+                <span>24</span>
+                <span>25</span>
+                <span>26</span>
+              </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+              <h3>Quick Actions</h3>
+
+              <div class="action-item action-1">
+                <div class="action-icon">🚀</div>
+                <span class="action-text">Start New Server</span>
+              </div>
+
+              <div class="action-item action-2">
+                <div class="action-icon">💾</div>
+                <span class="action-text">Create Backup</span>
+              </div>
+
+              <div class="action-item action-3">
+                <div class="action-icon">📁</div>
+                <span class="action-text">Open File Manager</span>
+              </div>
+
+              <div class="action-item action-4">
+                <div class="action-icon">🛠️</div>
+                <span class="action-text">Contact Support</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // Add some interactivity
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          document
+            .querySelectorAll(".nav-link")
+            .forEach((l) => l.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+
+      document.querySelectorAll(".action-item").forEach((item) => {
+        item.addEventListener("click", function () {
+          const actionText = this.querySelector(".action-text").textContent;
+          alert(`${actionText} clicked!`);
+        });
+      });
+
+      // Animate usage bars on load
+      window.addEventListener("load", function () {
+        document.querySelectorAll(".usage-fill").forEach((bar) => {
+          const width = bar.style.width;
+          bar.style.width = "0%";
+          setTimeout(() => {
+            bar.style.transition = "width 1s ease-in-out";
+            bar.style.width = width;
+          }, 500);
+        });
+      });
+
+      // Update time periodically (simulation)
+      setInterval(() => {
+        document.querySelectorAll(".usage-fill").forEach((bar) => {
+          const currentWidth = parseInt(bar.style.width);
+          const newWidth = Math.max(
+            10,
+            Math.min(95, currentWidth + (Math.random() - 0.5) * 10)
+          );
+          bar.style.width = newWidth + "%";
+        });
+      }, 5000);
+    </script>
+  </body>
+</html>

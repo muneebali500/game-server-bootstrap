@@ -11,25 +11,23 @@
   filter: blur(60px);
 }
 
-.rectangle-1 {
+.virtual-camera-left {
   position: absolute;
-  transform: rotate(38deg);
-  left: -34%;
+  transform: rotateY(-185deg);
+  left: -8%;
   top: 0px;
-  height: 65rem;
+  height: 49rem;
   width: 75rem;
   opacity: 3%;
-  z-index: 3;
 }
-.rectangle-2 {
+.virtual-camera-right {
   position: absolute;
-  transform: rotate(38deg);
-  right: -34%;
+  transform: rotate(293deg);
+  right: -23%;
   top: 0px;
   height: 65rem;
   width: 75rem;
   opacity: 3%;
-  z-index: 3;
 }
 
 #hero-common .breadcrumb-item + .breadcrumb-item::before {

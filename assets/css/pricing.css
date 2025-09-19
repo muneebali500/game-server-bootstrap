@@ -1,0 +1,163 @@
+#slots-pricing .slider-container {
+  position: relative;
+  margin: 60px 0;
+}
+
+#slots-pricing .slider-track {
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  position: relative;
+}
+
+#slots-pricing .price-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  position: relative;
+}
+
+#slots-pricing .price-point {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+#slots-pricing .price-point.active .price {
+  color: #6366f1;
+  font-weight: 600;
+}
+
+#slots-pricing .price-point.active .slots {
+  color: #6366f1;
+}
+
+#slots-pricing .price {
+  font-size: clamp(16px, 1.2vw, 24px);
+  font-weight: 500;
+  color: #d1d5db;
+  margin-bottom: 4px;
+}
+
+#slots-pricing .slots {
+  font-size: clamp(14px, 1vw, 18px);
+  color: var(--clr-gray);
+}
+
+#slots-pricing .total-price {
+  text-align: center;
+  border: var(--border-light);
+  padding: 1rem;
+  border-radius: 16px;
+  max-width: 250px;
+  margin: 40px auto;
+}
+
+#slots-pricing .total-label {
+  color: var(--clr-gray);
+  font-size: clamp(17px, 1.4vw, 26px);
+}
+
+#slots-pricing .total-amount {
+  color: #6366f1;
+  font-size: clamp(17px, 1.4vw, 26px);
+  font-weight: 600;
+}
+
+#slots-pricing input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  cursor: pointer;
+}
+
+#slots-pricing input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #6366f1;
+  border: 3px solid #1f2937;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 0 2px #6366f1;
+}
+
+#slots-pricing input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #6366f1;
+  border: 3px solid #1f2937;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 0 2px #6366f1;
+}
+
+#durations-pricing button {
+  width: 100%;
+  border-radius: var(--rounded-48);
+  border: 3px solid #ffffff3d;
+  padding: 1rem;
+  font-size: 2.6rem;
+  color: #6e6e6e;
+  background-color: transparent;
+  box-shadow: 0 0 10px #ffffff0f;
+}
+
+#durations-pricing button.active {
+  background-image: var(--gradient-primary);
+  color: #fff;
+}
+
+#durations-pricing .camera-pic {
+  position: absolute;
+  opacity: 13%;
+  transform: scaleX(3);
+  width: 85rem;
+  height: 75rem;
+  rotate: 171deg;
+  top: -67rem;
+  left: 136rem;
+  mix-blend-mode: Screen;
+  z-index: -1;
+}
+
+#locations-pricing .location-btn {
+  width: 100%;
+  height: 65px;
+  border-radius: var(--rounded-48);
+  border: 3px solid #ffffff3d;
+  padding: 1rem 1rem 1rem 3.2rem;
+  font-size: 1.5rem;
+  color: #6e6e6e;
+  background-color: transparent;
+  box-shadow: 0 0 10px #ffffff0f;
+  overflow: hidden;
+  position: relative;
+}
+
+#locations-pricing .location-btn .flag {
+  position: absolute;
+  left: -1rem;
+  top: 0;
+  display: inline-block;
+  width: 5rem;
+  height: 100%;
+  border-radius: var(--rounded-48);
+  background-color: #ffffff1c;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 0.5rem;
+  font-size: 2rem;
+}
+
+#locations-pricing .location-btn.active {
+  background-image: var(--gradient-primary);
+  color: #fff;
+}
