@@ -3,680 +3,526 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Game Server Dashboard</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+    <title>Dashboard - Game Server</title>
 
-      body {
-        background: #0a0a0f;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          sans-serif;
-        color: white;
-        overflow-x: hidden;
-      }
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
 
-      .dashboard {
-        display: flex;
-        min-height: 100vh;
-      }
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-      /* Sidebar */
-      .sidebar {
-        width: 250px;
-        background: #1a1a1f;
-        padding: 20px 0;
-        border-right: 1px solid #2a2a35;
-      }
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
 
-      .welcome-text {
-        padding: 0 20px 30px;
-        font-size: 16px;
-        font-weight: 500;
-      }
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 
-      .nav-menu {
-        list-style: none;
-      }
-
-      .nav-item {
-        margin-bottom: 8px;
-      }
-
-      .nav-link {
-        display: flex;
-        align-items: center;
-        padding: 12px 20px;
-        color: #9ca3af;
-        text-decoration: none;
-        font-size: 14px;
-        transition: all 0.3s ease;
-      }
-
-      .nav-link.active {
-        background: #6366f1;
-        color: white;
-        border-radius: 8px;
-        margin: 0 12px;
-      }
-
-      .nav-link:hover:not(.active) {
-        background: #2a2a35;
-        color: white;
-      }
-
-      .nav-icon {
-        width: 16px;
-        height: 16px;
-        margin-right: 12px;
-      }
-
-      .logout-btn {
-        position: absolute;
-        bottom: 20px;
-        left: 20px;
-        background: none;
-        border: none;
-        color: #ef4444;
-        font-size: 14px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-      }
-
-      /* Main Content */
-      .main-content {
-        flex: 1;
-        padding: 20px;
-      }
-
-      /* Header */
-      .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 30px;
-      }
-
-      .header-left h1 {
-        font-size: 24px;
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
-
-      .header-right {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-      }
-
-      .header-icon {
-        width: 40px;
-        height: 40px;
-        background: #2a2a35;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        position: relative;
-      }
-
-      .notification-badge {
-        position: absolute;
-        top: -4px;
-        right: -4px;
-        width: 16px;
-        height: 16px;
-        background: #ef4444;
-        border-radius: 50%;
-        font-size: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .user-profile {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .user-avatar {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: #6366f1;
-      }
-
-      .user-info h3 {
-        font-size: 14px;
-        font-weight: 500;
-      }
-
-      .user-info p {
-        font-size: 12px;
-        color: #9ca3af;
-      }
-
-      /* Content Grid */
-      .content-grid {
-        display: grid;
-        grid-template-columns: 1fr 300px;
-        gap: 30px;
-      }
-
-      .left-column {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-      }
-
-      /* Server Cards */
-      .server-cards {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-      }
-
-      .server-card {
-        background: #1a1a1f;
-        border-radius: 12px;
-        padding: 20px;
-        border: 1px solid #2a2a35;
-      }
-
-      .server-card-header {
-        display: flex;
-        justify-content: between;
-        align-items: center;
-        margin-bottom: 15px;
-      }
-
-      .server-icon {
-        width: 40px;
-        height: 40px;
-        background: #6366f1;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 12px;
-      }
-
-      .server-info h3 {
-        font-size: 16px;
-        font-weight: 500;
-        margin-bottom: 4px;
-      }
-
-      .server-info p {
-        font-size: 12px;
-        color: #9ca3af;
-      }
-
-      .status-badge {
-        padding: 4px 12px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: 500;
-        margin-left: auto;
-      }
-
-      .status-online {
-        background: #10b981;
-        color: white;
-      }
-
-      .status-offline {
-        background: #ef4444;
-        color: white;
-      }
-
-      /* Server List */
-      .server-list {
-        background: #1a1a1f;
-        border-radius: 12px;
-        padding: 20px;
-        border: 1px solid #2a2a35;
-      }
-
-      .server-list h3 {
-        font-size: 18px;
-        font-weight: 500;
-        margin-bottom: 20px;
-      }
-
-      .server-list-header {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr;
-        gap: 20px;
-        padding-bottom: 15px;
-        border-bottom: 1px solid #2a2a35;
-        margin-bottom: 15px;
-      }
-
-      .server-list-header span {
-        font-size: 12px;
-        color: #9ca3af;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-
-      .server-row {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr;
-        gap: 20px;
-        padding: 12px 0;
-        align-items: center;
-        border-bottom: 1px solid #2a2a35;
-      }
-
-      .server-row:last-child {
-        border-bottom: none;
-      }
-
-      .usage-bar {
-        width: 100%;
-        height: 6px;
-        background: #2a2a35;
-        border-radius: 3px;
-        overflow: hidden;
-      }
-
-      .usage-fill {
-        height: 100%;
-        background: #6366f1;
-        border-radius: 3px;
-      }
-
-      /* Right Column */
-      .right-column {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-      }
-
-      /* Usage Graph */
-      .usage-graph {
-        background: #1a1a1f;
-        border-radius: 12px;
-        padding: 20px;
-        border: 1px solid #2a2a35;
-      }
-
-      .usage-graph h3 {
-        font-size: 18px;
-        font-weight: 500;
-        margin-bottom: 20px;
-      }
-
-      .chart-container {
-        height: 200px;
-        position: relative;
-        margin-bottom: 15px;
-      }
-
-      .chart-dates {
-        display: flex;
-        justify-content: space-between;
-        font-size: 12px;
-        color: #9ca3af;
-      }
-
-      /* Quick Actions */
-      .quick-actions {
-        background: #1a1a1f;
-        border-radius: 12px;
-        padding: 20px;
-        border: 1px solid #2a2a35;
-      }
-
-      .quick-actions h3 {
-        font-size: 18px;
-        font-weight: 500;
-        margin-bottom: 20px;
-      }
-
-      .action-item {
-        display: flex;
-        align-items: center;
-        padding: 12px 0;
-        cursor: pointer;
-        transition: opacity 0.3s ease;
-      }
-
-      .action-item:hover {
-        opacity: 0.7;
-      }
-
-      .action-icon {
-        width: 32px;
-        height: 32px;
-        border-radius: 6px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 12px;
-      }
-
-      .action-1 .action-icon {
-        background: #3b82f6;
-      }
-      .action-2 .action-icon {
-        background: #10b981;
-      }
-      .action-3 .action-icon {
-        background: #f59e0b;
-      }
-      .action-4 .action-icon {
-        background: #ef4444;
-      }
-
-      .action-text {
-        font-size: 14px;
-        font-weight: 500;
-      }
-
-      /* Chart SVG */
-      .chart-svg {
-        width: 100%;
-        height: 100%;
-      }
-
-      @media (max-width: 1024px) {
-        .content-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .server-cards {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .dashboard {
-          flex-direction: column;
-        }
-
-        .sidebar {
-          width: 100%;
-          order: 2;
-        }
-
-        .main-content {
-          order: 1;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="assets/css/globals.css" />
+    <link rel="stylesheet" href="assets/css/dashboard.css" />
   </head>
+
   <body>
-    <div class="dashboard">
-      <!-- Sidebar -->
-      <aside class="sidebar">
-        <div class="welcome-text">Welcome Back , Seif</div>
+    <nav class="sidebar" data-animate="fadeInLeft" data-animate-delay="200">
+      <button class="sidebar-close">
+        <i class="fas fa-times"></i>
+      </button>
 
-        <nav>
-          <ul class="nav-menu">
-            <li class="nav-item">
-              <a href="#" class="nav-link active">
-                <span class="nav-icon">🏠</span>
-                Dashboard
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <span class="nav-icon">🖥️</span>
-                Servers
-              </a>
-            </li>
-          </ul>
-        </nav>
+      <ul class="sidebar-nav">
+        <li class="d-block d-lg-none">
+          <a class="nav-link d-flex align-items-center" href="#">
+            <i class="fas fa-user"></i>
+            Profile
+          </a>
+        </li>
+        <li class="d-block d-lg-none">
+          <a class="nav-link d-flex align-items-center" href="#">
+            <i class="fas fa-cog"></i>
+            Settings
+          </a>
+        </li>
 
-        <button class="logout-btn">◀ Logout</button>
-      </aside>
+        <li>
+          <a
+            class="nav-link d-flex align-items-center active"
+            href="dashboard.html"
+          >
+            <i class="fas fa-chart-bar"></i>
+            Dashboard
+          </a>
+        </li>
+        <li>
+          <a
+            class="nav-link d-flex align-items-center"
+            href="dashb-servers.html"
+          >
+            <i class="fas fa-cogs"></i>
+            Servers
+          </a>
+        </li>
+      </ul>
 
-      <!-- Main Content -->
-      <main class="main-content">
-        <!-- Header -->
-        <header class="header">
-          <div class="header-left">
-            <h1>Welcome Back, Seif</h1>
-          </div>
-          <div class="header-right">
-            <div class="header-icon">🛒</div>
-            <div class="header-icon">
-              🔔
-              <span class="notification-badge">1</span>
-            </div>
-            <div class="user-profile">
-              <div class="user-avatar"></div>
-              <div class="user-info">
-                <h3>Seif Hossam</h3>
-                <p>Free Account</p>
+      <button class="logout-btn">
+        Logout
+        <i class="fas fa-sign-out-alt ms-2"></i>
+      </button>
+    </nav>
+
+    <main id="dashb-main">
+      <header id="dashb-header" data-animate="fadeIn" data-animate-delay="200">
+        <div class="p-4 px-md-5">
+          <div class="row">
+            <div
+              class="col-6 col-lg-4 d-flex align-items-start align-items-md-center gap-3"
+            >
+              <div>
+                <h2 class="mb-1 fs-2 fw-bold">Welcome Back, Seif</h2>
               </div>
             </div>
-          </div>
-        </header>
-
-        <div class="content-grid">
-          <!-- Left Column -->
-          <div class="left-column">
-            <!-- Server Status Cards -->
-            <div class="server-cards">
-              <div class="server-card">
-                <div class="server-card-header">
-                  <div style="display: flex; align-items: center">
-                    <div class="server-icon">A</div>
-                    <div class="server-info">
-                      <h3>APK Servers</h3>
-                      <p>3 Active Servers</p>
-                    </div>
-                  </div>
-                  <span class="status-badge status-online">Online</span>
-                </div>
+            <div
+              class="d-flex justify-content-end align-items-start align-items-md-center gap-3 col-6 col-lg-8"
+            >
+              <div class="cart-icon">
+                <i class="fa-solid fa-cart-shopping fs-3"></i>
+              </div>
+              <div class="bell-icon">
+                <i class="fa-solid fa-bell fs-3"></i>
+              </div>
+              <figure class="user-pic">
+                <img
+                  class="cover"
+                  src="assets/images/user-pic.png"
+                  alt="User Pic"
+                  loading="lazy"
+                />
+              </figure>
+              <button class="dashb-btn d-lg-none border px-2 mobile-toggle">
+                <i class="fas fa-bars"></i>
+              </button>
+              <div class="d-none d-lg-block">
+                <h3 class="user-name mb-0">Seif Hossam</h3>
+                <p class="user-occupation mb-0 fs-4 clr-gray">Free Account</p>
               </div>
 
-              <div class="server-card">
-                <div class="server-card-header">
-                  <div style="display: flex; align-items: center">
-                    <div class="server-icon" style="background: #10b981">●</div>
-                    <div class="server-info">
-                      <h3>Running</h3>
-                      <p>2 Online</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="server-card">
-                <div class="server-card-header">
-                  <div style="display: flex; align-items: center">
-                    <div class="server-icon" style="background: #ef4444">●</div>
-                    <div class="server-info">
-                      <h3>Offline</h3>
-                      <p>1 Offline</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Server List -->
-            <div class="server-list">
-              <h3>My Servers</h3>
-
-              <div class="server-list-header">
-                <span>Name</span>
-                <span>Status</span>
-                <span>Usage</span>
-              </div>
-
-              <div class="server-row">
-                <span>APK Server</span>
-                <span class="status-badge status-online">Online</span>
-                <div class="usage-bar">
-                  <div class="usage-fill" style="width: 75%"></div>
-                </div>
-              </div>
-
-              <div class="server-row">
-                <span>APK Server</span>
-                <span class="status-badge status-online">Online</span>
-                <div class="usage-bar">
-                  <div class="usage-fill" style="width: 60%"></div>
-                </div>
-              </div>
-
-              <div class="server-row">
-                <span>APK Server</span>
-                <span class="status-badge status-online">Online</span>
-                <div class="usage-bar">
-                  <div class="usage-fill" style="width: 45%"></div>
-                </div>
-              </div>
-
-              <div class="server-row">
-                <span>APK Server</span>
-                <span class="status-badge status-online">Online</span>
-                <div class="usage-bar">
-                  <div class="usage-fill" style="width: 80%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Column -->
-          <div class="right-column">
-            <!-- Usage Graph -->
-            <div class="usage-graph">
-              <h3>Usage Graphs</h3>
-              <div class="chart-container">
-                <svg class="chart-svg" viewBox="0 0 280 160">
-                  <!-- Grid lines -->
-                  <defs>
-                    <pattern
-                      id="grid"
-                      width="40"
-                      height="32"
-                      patternUnits="userSpaceOnUse"
-                    >
-                      <path
-                        d="M 40 0 L 0 0 0 32"
-                        fill="none"
-                        stroke="#2a2a35"
-                        stroke-width="1"
-                      />
-                    </pattern>
-                  </defs>
-                  <rect width="280" height="160" fill="url(#grid)" />
-
-                  <!-- Chart lines -->
-                  <path
-                    d="M 10 120 Q 50 100 90 80 Q 130 60 170 70 Q 210 80 250 50 Q 270 40 280 30"
-                    fill="none"
-                    stroke="#6366f1"
-                    stroke-width="2"
-                  />
-                  <path
-                    d="M 10 140 Q 50 130 90 110 Q 130 90 170 100 Q 210 110 250 80 Q 270 70 280 60"
-                    fill="none"
-                    stroke="#10b981"
-                    stroke-width="2"
-                  />
-                  <path
-                    d="M 10 100 Q 50 90 90 70 Q 130 50 170 60 Q 210 70 250 40 Q 270 30 280 20"
-                    fill="none"
-                    stroke="#3b82f6"
-                    stroke-width="2"
-                  />
-                </svg>
-              </div>
-              <div class="chart-dates">
-                <span>20</span>
-                <span>21</span>
-                <span>22</span>
-                <span>23</span>
-                <span>24</span>
-                <span>25</span>
-                <span>26</span>
-              </div>
-            </div>
-
-            <!-- Quick Actions -->
-            <div class="quick-actions">
-              <h3>Quick Actions</h3>
-
-              <div class="action-item action-1">
-                <div class="action-icon">🚀</div>
-                <span class="action-text">Start New Server</span>
-              </div>
-
-              <div class="action-item action-2">
-                <div class="action-icon">💾</div>
-                <span class="action-text">Create Backup</span>
-              </div>
-
-              <div class="action-item action-3">
-                <div class="action-icon">📁</div>
-                <span class="action-text">Open File Manager</span>
-              </div>
-
-              <div class="action-item action-4">
-                <div class="action-icon">🛠️</div>
-                <span class="action-text">Contact Support</span>
+              <div class="dropdown ms-3 d-none d-lg-block">
+                <i
+                  class="fas fa-angle-down"
+                  id="dropdownMenuButton1"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  style="cursor: pointer; font-size: 16px"
+                ></i>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item fs-4" href="#">Profile</a></li>
+                  <li><a class="dropdown-item fs-4" href="#">Settings</a></li>
+                  <li><a class="dropdown-item fs-4" href="#">Logout</a></li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
-      </main>
-    </div>
+      </header>
+
+      <section class="p-4 px-md-5">
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div
+              class="d-flex gap-4 align-items-center border-lite p-5 rounded-5 mb-4"
+              style="background-color: #ffffff08"
+              data-animate="fadeInLeft"
+              data-animate-delay="200"
+            >
+              <span
+                class="rounded-circle border-lite flex-center fs-4"
+                style="
+                  width: 4.5rem;
+                  height: 4.5rem;
+                  color: #8a38f5;
+                  background-color: #2a1e3f;
+                "
+                ><i class="fas fa-chart-bar"></i
+              ></span>
+              <div style="flex: 1">
+                <h3 class="fw-semibold fs-3">APK Servers</h3>
+                <p class="clr-gray fs-4">3 Active Servers</p>
+              </div>
+              <span class="fw-medium fs-4 clr-blue">Online</span>
+            </div>
+            <div class="row">
+              <div
+                class="col-lg-6"
+                data-animate="fadeInLeft"
+                data-animate-delay="400"
+              >
+                <div
+                  class="d-flex gap-4 align-items-center border-lite p-5 rounded-5 mb-4 position-relative overflow-hidden"
+                  style="background-color: #ffffff08"
+                >
+                  <span
+                    class="icon rounded-circle border-lite flex-center"
+                    style="
+                      width: 4.5rem;
+                      height: 4.5rem;
+                      background-color: #2a1e3f;
+                    "
+                    ><b
+                      class="rounded-circle border-lite"
+                      style="
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        background-color: #06fc48;
+                      "
+                    ></b
+                  ></span>
+                  <div style="flex: 1">
+                    <h3 class="fw-semibold fs-3">Running</h3>
+                    <p class="clr-gray fs-4">2 Online</p>
+                  </div>
+
+                  <span
+                    class="position-absolute rounded-circle"
+                    style="
+                      top: 4rem;
+                      right: -5rem;
+                      height: 10rem;
+                      width: 10rem;
+                      background-color: #ffffff1a;
+                    "
+                  ></span>
+                  <span
+                    class="position-absolute rounded-circle"
+                    style="
+                      top: 6rem;
+                      right: -5rem;
+                      height: 10rem;
+                      width: 10rem;
+                      background-color: #ffffff37;
+                    "
+                  ></span>
+                </div>
+              </div>
+              <div
+                class="col-lg-6"
+                data-animate="fadeInLeft"
+                data-animate-delay="300"
+              >
+                <div
+                  class="d-flex gap-4 align-items-center border-lite p-5 rounded-5 mb-4 position-relative overflow-hidden"
+                  style="background-color: #ffffff08"
+                >
+                  <span
+                    class="icon rounded-circle border-lite flex-center"
+                    style="
+                      width: 4.5rem;
+                      height: 4.5rem;
+                      background-color: #2a1e3f;
+                    "
+                    ><b
+                      class="rounded-circle border-lite"
+                      style="
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        background-color: #f7152c;
+                      "
+                    ></b
+                  ></span>
+                  <div style="flex: 1">
+                    <h3 class="fw-semibold fs-3">Offline</h3>
+                    <p class="clr-gray fs-4">1 Offline</p>
+                  </div>
+
+                  <span
+                    class="position-absolute rounded-circle"
+                    style="
+                      top: 4rem;
+                      right: -5rem;
+                      height: 10rem;
+                      width: 10rem;
+                      background-color: #ffffff1a;
+                    "
+                  ></span>
+                  <span
+                    class="position-absolute rounded-circle"
+                    style="
+                      top: 6rem;
+                      right: -5rem;
+                      height: 10rem;
+                      width: 10rem;
+                      background-color: #ffffff37;
+                    "
+                  ></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div
+              class="h-100 border-lite p-5 rounded-5"
+              style="background-color: #ffffff08"
+              data-animate="fadeInRight"
+              data-animate-delay="200"
+            >
+              <h5 class="fw-semibold fs-3 mb-4">Usage Graphs</h5>
+              <div class="height: 100px">
+                <canvas id="usageChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="row m-4">
+        <div class="col-lg-6 mb-4">
+          <div
+            class="text-white border-lite p-5 rounded-5"
+            style="background-color: #ffffff08"
+            data-animate="fadeInLeft"
+            data-animate-delay="400"
+          >
+            <div>
+              <h5 class="fw-semibold fs-3 mb-3">My Servers</h5>
+              <div class="table-responsive">
+                <table class="table table-borderless mb-0">
+                  <thead>
+                    <tr class="fs-4">
+                      <th scope="col" class="clr-gray py-4">Name</th>
+                      <th scope="col" class="clr-gray py-4">Status</th>
+                      <th scope="col" class="clr-gray py-4">Usage</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-white fs-4">APK Server</td>
+                      <td class="clr-blue fw-bold fs-5">Online</td>
+                      <td>
+                        <div class="progress rounded-48" style="height: 13px">
+                          <div
+                            class="progress-bar"
+                            role="progressbar"
+                            style="width: 75%; background-color: #8a38f5"
+                            aria-valuenow="75"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          ></div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-white fs-4">APK Server</td>
+                      <td class="text-danger fw-bold fs-5">Offline</td>
+                      <td>
+                        <div class="progress rounded-48" style="height: 13px">
+                          <div
+                            class="progress-bar"
+                            role="progressbar"
+                            style="width: 65%; background-color: #8a38f5"
+                            aria-valuenow="75"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          ></div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-white fs-4">APK Server</td>
+                      <td class="clr-blue fw-bold fs-5">Online</td>
+                      <td>
+                        <div class="progress rounded-48" style="height: 13px">
+                          <div
+                            class="progress-bar"
+                            role="progressbar"
+                            style="width: 55%; background-color: #8a38f5"
+                            aria-valuenow="75"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          ></div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-white fs-4">APK Server</td>
+                      <td class="clr-blue fw-bold fs-5">Online</td>
+                      <td>
+                        <div class="progress rounded-48" style="height: 13px">
+                          <div
+                            class="progress-bar"
+                            role="progressbar"
+                            style="width: 70%; background-color: #8a38f5"
+                            aria-valuenow="75"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          ></div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 mb-4">
+          <div
+            class="h-100 text-white border-lite rounded-5 p-5 position-relative overflow-hidden"
+            style="background-color: #ffffff08"
+            data-animate="fadeInRight"
+            data-animate-delay="400"
+          >
+            <h5 class="fw-semibold fs-3 mb-4">Quick Actions</h5>
+            <ul>
+              <li class="d-flex gap-3 align-items-center py-3">
+                <span
+                  class="rounded-circle d-flex align-items-center justify-content-center"
+                  style="width: 3rem; height: 3rem; background-color: #2a1e3f"
+                >
+                  <i class="fa-solid fa-power-off" style="color: #9370db"></i>
+                </span>
+                <a href="#" class="text-decoration-none fs-4 text-white"
+                  >Start New Server</a
+                >
+              </li>
+              <li class="d-flex gap-3 align-items-center py-3">
+                <span
+                  class="rounded-circle d-flex align-items-center justify-content-center"
+                  style="width: 3rem; height: 3rem; background-color: #2a1e3f"
+                >
+                  <i
+                    class="fa-solid fa-cloud-arrow-down"
+                    style="color: #9370db"
+                  ></i>
+                </span>
+                <a href="#" class="text-decoration-none fs-4 text-white"
+                  >Create Backup</a
+                >
+              </li>
+              <li class="d-flex gap-3 align-items-center py-3">
+                <span
+                  class="rounded-circle d-flex align-items-center justify-content-center"
+                  style="width: 3rem; height: 3rem; background-color: #2a1e3f"
+                >
+                  <i class="fa-solid fa-folder-open" style="color: #9370db"></i>
+                </span>
+                <a href="#" class="text-decoration-none fs-4 text-white"
+                  >Open File Manager</a
+                >
+              </li>
+              <li class="d-flex gap-3 align-items-center py-3">
+                <span
+                  class="rounded-circle d-flex align-items-center justify-content-center"
+                  style="width: 3rem; height: 3rem; background-color: #2a1e3f"
+                >
+                  <i class="fa-solid fa-envelope" style="color: #9370db"></i>
+                </span>
+                <a href="#" class="text-decoration-none fs-4 text-white"
+                  >Contact Support</a
+                >
+              </li>
+            </ul>
+
+            <span
+              class="position-absolute rounded-circle"
+              style="
+                top: -47%;
+                right: -10%;
+                height: 20rem;
+                width: 20rem;
+                background-color: #ffffff08;
+              "
+            ></span>
+            <span
+              class="position-absolute rounded-circle"
+              style="
+                bottom: -47%;
+                right: -10%;
+                height: 20rem;
+                width: 20rem;
+                background-color: #ffffff08;
+              "
+            ></span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-      // Add some interactivity
-      document.querySelectorAll(".nav-link").forEach((link) => {
-        link.addEventListener("click", function (e) {
-          e.preventDefault();
-          document
-            .querySelectorAll(".nav-link")
-            .forEach((l) => l.classList.remove("active"));
-          this.classList.add("active");
-        });
-      });
+      const ctx = document.getElementById("usageChart").getContext("2d");
 
-      document.querySelectorAll(".action-item").forEach((item) => {
-        item.addEventListener("click", function () {
-          const actionText = this.querySelector(".action-text").textContent;
-          alert(`${actionText} clicked!`);
-        });
+      new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: ["20", "21", "22", "23", "24", "25", "26"], // X-axis
+          datasets: [
+            {
+              label: "Dataset 1",
+              data: [12, 6, 7, 15, 9, 11, 13], // purple line
+              borderColor: "#8a38f5",
+              backgroundColor: "transparent",
+              tension: 0.4,
+              borderWidth: 2,
+            },
+            {
+              label: "Dataset 2",
+              data: [8, 10, 6, 9, 5, 4, 6], // green line
+              borderColor: "#23f181",
+              backgroundColor: "transparent",
+              tension: 0.4,
+              borderWidth: 2,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false, // hides legend
+            },
+          },
+          scales: {
+            x: {
+              grid: {
+                display: false,
+                drawBorder: false,
+              },
+              ticks: {
+                color: "#ccc",
+              },
+            },
+            y: {
+              grid: {
+                color: "rgba(255, 255, 255, 0.05)",
+              },
+              ticks: {
+                color: "#888",
+              },
+            },
+          },
+        },
       });
-
-      // Animate usage bars on load
-      window.addEventListener("load", function () {
-        document.querySelectorAll(".usage-fill").forEach((bar) => {
-          const width = bar.style.width;
-          bar.style.width = "0%";
-          setTimeout(() => {
-            bar.style.transition = "width 1s ease-in-out";
-            bar.style.width = width;
-          }, 500);
-        });
-      });
-
-      // Update time periodically (simulation)
-      setInterval(() => {
-        document.querySelectorAll(".usage-fill").forEach((bar) => {
-          const currentWidth = parseInt(bar.style.width);
-          const newWidth = Math.max(
-            10,
-            Math.min(95, currentWidth + (Math.random() - 0.5) * 10)
-          );
-          bar.style.width = newWidth + "%";
-        });
-      }, 5000);
     </script>
+
+    <script src="assets/js/dashboard.js"></script>
   </body>
 </html>

@@ -27,6 +27,11 @@
       crossorigin="anonymous"
     />
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
     <link rel="stylesheet" href="assets/css/globals.css" />
     <link rel="stylesheet" href="assets/css/common.css" />
     <link rel="stylesheet" href="assets/css/index.css" />
@@ -34,7 +39,7 @@
   <body>
     <main>
       <div class="position-relative overflow-hidden mb-5">
-        <header class="flex-center">
+        <header class="flex-center position-relative">
           <div class="main-container">
             <div class="flex-center">
               <button class="flex-center logo">
@@ -45,26 +50,50 @@
                   class="w-75"
                 />
               </button>
+
+              <nav class="menu" id="menu">
+                <a href="index.html">Home</a>
+                <a href="contact.html">Contact</a>
+                <a href="faqs.html">Faqs</a>
+              </nav>
             </div>
           </div>
         </header>
 
-        <section id="hero-home" class="hero-home">
+        <section id="hero-home">
           <div class="main-container">
             <div class="row">
               <div class="content-wrap flex-center flex-column">
-                <h4 class="section-subheading">AI Data Processing</h4>
-                <h1 class="hero-heading">
+                <h4
+                  class="section-subheading"
+                  data-animate="fadeInUp"
+                  data-animate-delay="100"
+                >
+                  AI Data Processing
+                </h4>
+                <h1
+                  class="hero-heading"
+                  data-animate="fadeInUp"
+                  data-animate-delay="200"
+                >
                   Best Premium Gaming Server Hosting built for serious gamers
                 </h1>
-                <div class="hero-desc">
+                <div
+                  class="hero-desc"
+                  data-animate="fadeInUp"
+                  data-animate-delay="300"
+                >
                   <p>
                     Powerful and reliable game server hosting built for serious
                     gamers. Experience low-latency performance, instant setup,
                     and 24/7 support
                   </p>
                 </div>
-                <a href="#services-home" class="btn-link">
+                <a
+                  href="#services-home"
+                  data-animate="fadeInUp"
+                  data-animate-delay="400"
+                >
                   <button class="button primary-btn">Our Services</button>
                 </a>
               </div>
@@ -106,12 +135,16 @@
             alt="Icon"
             loading="lazy"
             class="pic-1"
+            data-animate="fadeInLeft"
+            data-animate-delay="300"
           />
           <img
             src="assets/images/gaming-wallpaper-2.png"
             alt="Icon"
             loading="lazy"
             class="pic-2"
+            data-animate="fadeInRight"
+            data-animate-delay="300"
           />
         </section>
 
@@ -131,17 +164,29 @@
         <div class="spread-shadow"></div>
       </div>
 
-      <section id="services-home" class="services-home section-padding">
+      <section id="services-home" class="section-padding">
         <div class="main-container">
-          <div class="header-wrap">
-            <h4 class="section-subheading">Our services</h4>
-            <h2 class="section-heading">Explore Our Services</h2>
-          </div>
+          <h4
+            class="section-subheading"
+            data-animate="fadeInUp"
+            data-animate-delay="100"
+          >
+            Our services
+          </h4>
+          <h2
+            class="section-heading"
+            data-animate="fadeInUp"
+            data-animate-delay="200"
+          >
+            Explore Our Services
+          </h2>
 
           <ul class="row g-4 mb-5">
             <li class="col-lg-6">
               <div
                 class="card-wrap h-100 d-md-flex align-items-center gap-5 p-5 border-lite rounded-35 card-gradient"
+                data-animate="fadeInLeft"
+                data-animate-delay="200"
               >
                 <div class="left-side">
                   <h3 class="card-heading">DDos Protection</h3>
@@ -198,6 +243,8 @@
             <li class="col-lg-6">
               <div
                 class="card-wrap h-100 d-md-flex align-items-center gap-5 p-5 border-lite rounded-35 card-gradient"
+                data-animate="fadeInRight"
+                data-animate-delay="200"
               >
                 <div class="left-side">
                   <h3 class="card-heading">Premium Hardware</h3>
@@ -240,6 +287,8 @@
             <li class="col-lg-4">
               <div
                 class="card-wrap h-100 d-md-flex d-lg-block align-items-center gap-5 p-5 border-lite rounded-35 card-gradient"
+                data-animate="fadeInLeft"
+                data-animate-delay="300"
               >
                 <div class="left-side">
                   <h3 class="card-heading">DDos Protection</h3>
@@ -284,6 +333,8 @@
             <li class="col-lg-4">
               <div
                 class="card-wrap h-100 d-md-flex d-lg-block align-items-center gap-5 p-5 border-lite rounded-35 card-gradient"
+                data-animate="fadeInUp"
+                data-animate-delay="300"
               >
                 <div class="left-side">
                   <h3 class="card-heading">Fast Protection</h3>
@@ -328,6 +379,8 @@
             <li class="col-lg-4">
               <div
                 class="card-wrap h-100 d-md-flex d-lg-block align-items-center gap-5 p-5 border-lite rounded-35 card-gradient"
+                data-animate="fadeInRight"
+                data-animate-delay="300"
               >
                 <div class="left-side">
                   <h3 class="card-heading">Ultra-Fast Performance</h3>
@@ -372,19 +425,30 @@
         </div>
       </section>
 
-      <section
-        id="games-home"
-        class="games-home section-padding overflow-hidden"
-      >
+      <section id="games-home" class="section-padding overflow-hidden">
         <div class="main-container">
-          <div class="header-wrap">
-            <h4 class="section-subheading">Our Games</h4>
-            <h2 class="section-heading">Explore Our Games</h2>
-          </div>
+          <h4
+            class="section-subheading"
+            data-animate="fadeInUp"
+            data-animate-delay="100"
+          >
+            Our Games
+          </h4>
+          <h2
+            class="section-heading"
+            data-animate="fadeInUp"
+            data-animate-delay="200"
+          >
+            Explore Our Games
+          </h2>
 
           <ul class="row g-4">
             <li class="col-lg-4">
-              <div class="card-wrap p-4 border-liter rounded-48">
+              <div
+                class="card-wrap p-4 border-liter rounded-48"
+                data-animate="fadeInLeft"
+                data-animate-delay="300"
+              >
                 <figure
                   style="height: 300px"
                   class="rounded-24 overflow-hidden mb-4"
@@ -401,14 +465,20 @@
                   Starting at : <span class="gradient-text">$1.45 / slot</span>
                 </p>
 
-                <button class="button primary-btn w-100 mt-3">
-                  Register Now
-                </button>
+                <a href="signup.html">
+                  <button class="button primary-btn w-100 mt-3">
+                    Register Now
+                  </button>
+                </a>
               </div>
             </li>
 
             <li class="col-lg-4">
-              <div class="card-wrap p-4 border-liter rounded-48">
+              <div
+                class="card-wrap p-4 border-liter rounded-48"
+                data-animate="fadeInUp"
+                data-animate-delay="300"
+              >
                 <figure
                   style="height: 300px"
                   class="rounded-24 overflow-hidden mb-4"
@@ -425,14 +495,20 @@
                   Starting at : <span class="gradient-text">$0.99 / slot</span>
                 </p>
 
-                <button class="button primary-btn w-100 mt-3">
-                  Register Now
-                </button>
+                <a href="signup.html">
+                  <button class="button primary-btn w-100 mt-3">
+                    Register Now
+                  </button>
+                </a>
               </div>
             </li>
 
             <li class="col-lg-4">
-              <div class="card-wrap p-4 border-liter rounded-48">
+              <div
+                class="card-wrap p-4 border-liter rounded-48"
+                data-animate="fadeInRight"
+                data-animate-delay="300"
+              >
                 <figure
                   style="height: 300px"
                   class="rounded-24 overflow-hidden mb-4"
@@ -449,9 +525,11 @@
                   Starting at : <span class="gradient-text">$1.25 / slot</span>
                 </p>
 
-                <button class="button primary-btn w-100 mt-3">
-                  Register Now
-                </button>
+                <a href="signup.html">
+                  <button class="button primary-btn w-100 mt-3">
+                    Register Now
+                  </button>
+                </a>
               </div>
             </li>
           </ul>
@@ -483,115 +561,239 @@
         />
       </section>
 
-      <section id="testimonials-home" class="testimonials-home section-padding">
+      <section id="testimonials-home" class="section-padding">
         <div class="main-container">
-          <div class="header-wrap">
-            <h4 class="section-subheading">Our Testimonials</h4>
-            <h2 class="section-heading">What Our Clients Say!</h2>
+          <h4
+            class="section-subheading"
+            data-animate="fadeInUp"
+            data-animate-delay="100"
+          >
+            Our Testimonials
+          </h4>
+          <h2
+            class="section-heading"
+            data-animate="fadeInUp"
+            data-animate-delay="200"
+          >
+            What Our Clients Say!
+          </h2>
+
+          <div class="testimonials-slider-container">
+            <ul class="row g-4 testimonials-list">
+              <li class="col-lg-4">
+                <div
+                  class="card-wrapper h-100 p-5 rounded-48"
+                  data-animate="fadeInUp"
+                  data-animate-delay="100"
+                >
+                  <div class="d-flex align-items-center gap-4 mb-4">
+                    <figure class="client-pic">
+                      <img
+                        src="assets/images/3d-animation-character.png"
+                        alt="Client 3d Character"
+                        loading="lazy"
+                        class="cover"
+                      />
+                    </figure>
+                    <div>
+                      <h4>Seif Hossam</h4>
+                      <h5 class="gradient-text">@seifhossam001</h5>
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <p class="clr-gray fs-4 lh-base">
+                      I've been using this game hosting platform for months, and
+                      it's been fantastic. The servers are fast, stable, and
+                      easy to manage.
+                    </p>
+                  </div>
+                  <div>
+                    <span
+                      ><i class="fa-solid fa-star fs-4 clr-yellow"></i
+                    ></span>
+                    <span
+                      ><i class="fa-solid fa-star fs-4 clr-yellow"></i
+                    ></span>
+                    <span
+                      ><i class="fa-solid fa-star fs-4 clr-yellow"></i
+                    ></span>
+                    <span
+                      ><i class="fa-solid fa-star fs-4 clr-yellow"></i
+                    ></span>
+                    <span><i class="fa-solid fa-star fs-4 clr-gray"></i></span>
+                  </div>
+                </div>
+              </li>
+
+              <li class="col-lg-4">
+                <div
+                  class="card-wrapper h-100 p-5 rounded-48"
+                  data-animate="fadeInUp"
+                  data-animate-delay="200"
+                >
+                  <div class="card-top d-flex align-items-center gap-4 mb-4">
+                    <figure class="client-pic">
+                      <img
+                        src="assets/images/3d-animation-character.png"
+                        alt="Client 3d Character"
+                        loading="lazy"
+                        class="cover"
+                      />
+                    </figure>
+                    <div>
+                      <h4>Amira Khaled</h4>
+                      <h5 class="gradient-text">@amira_k</h5>
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <p class="clr-gray fs-4 lh-base">
+                      Customer support is excellent! They helped me set up my
+                      first server within minutes. Highly recommend for
+                      beginners and pros alike.
+                    </p>
+                  </div>
+                  <div>
+                    <span
+                      ><i class="fa-solid fa-star fs-4 clr-yellow"></i
+                    ></span>
+                    <span
+                      ><i class="fa-solid fa-star fs-4 clr-yellow"></i
+                    ></span>
+                    <span
+                      ><i class="fa-solid fa-star fs-4 clr-yellow"></i
+                    ></span>
+                    <span
+                      ><i class="fa-solid fa-star fs-4 clr-yellow"></i
+                    ></span>
+                    <span
+                      ><i class="fa-solid fa-star fs-4 clr-yellow"></i
+                    ></span>
+                  </div>
+                </div>
+              </li>
+
+              <li class="col-lg-4">
+                <div
+                  class="card-wrapper h-100 p-5 rounded-48"
+                  data-animate="fadeInUp"
+                  data-animate-delay="300"
+                >
+                  <div class="card-top d-flex align-items-center gap-4 mb-4">
+                    <figure class="client-pic">
+                      <img
+                        src="assets/images/3d-animation-character.png"
+                        alt="Client 3d Character"
+                        loading="lazy"
+                        class="cover"
+                      />
+                    </figure>
+                    <div>
+                      <h4>Liam Carter</h4>
+                      <h5 class="gradient-text">@liam_c</h5>
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <p class="clr-gray fs-4 lh-base">
+                      The performance is top-notch. I’ve hosted multiple games
+                      with zero downtime. Prices are fair and the quality is
+                      unmatched.
+                    </p>
+                  </div>
+                  <div>
+                    <span
+                      ><i class="fa-solid fa-star fs-4 clr-yellow"></i
+                    ></span>
+                    <span
+                      ><i class="fa-solid fa-star fs-4 clr-yellow"></i
+                    ></span>
+                    <span
+                      ><i class="fa-solid fa-star fs-4 clr-yellow"></i
+                    ></span>
+                    <span><i class="fa-solid fa-star fs-4 clr-gray"></i></span>
+                    <span><i class="fa-solid fa-star fs-4 clr-gray"></i></span>
+                  </div>
+                </div>
+              </li>
+
+              <li class="col-lg-4">
+                <div class="card-wrapper h-100 p-5 rounded-48">
+                  <div class="card-top d-flex align-items-center gap-4 mb-4">
+                    <figure class="client-pic">
+                      <img
+                        src="assets/images/3d-animation-character.png"
+                        alt="Client 3d Character"
+                        loading="lazy"
+                        class="cover"
+                      />
+                    </figure>
+                    <div>
+                      <h4>Liam Carter</h4>
+                      <h5 class="gradient-text">@liam_c</h5>
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <p class="clr-gray fs-4 lh-base">
+                      The performance is top-notch. I’ve hosted multiple games
+                      with zero downtime. Prices are fair and the quality is
+                      unmatched.
+                    </p>
+                  </div>
+                  <div>
+                    <span
+                      ><i class="fa-solid fa-star fs-4 clr-yellow"></i
+                    ></span>
+                    <span
+                      ><i class="fa-solid fa-star fs-4 clr-yellow"></i
+                    ></span>
+                    <span
+                      ><i class="fa-solid fa-star fs-4 clr-yellow"></i
+                    ></span>
+                    <span><i class="fa-solid fa-star fs-4 clr-gray"></i></span>
+                    <span><i class="fa-solid fa-star fs-4 clr-gray"></i></span>
+                  </div>
+                </div>
+              </li>
+
+              <li class="col-lg-4">
+                <div class="card-wrapper h-100 p-5 rounded-48">
+                  <div class="card-top d-flex align-items-center gap-4 mb-4">
+                    <figure class="client-pic">
+                      <img
+                        src="assets/images/3d-animation-character.png"
+                        alt="Client 3d Character"
+                        loading="lazy"
+                        class="cover"
+                      />
+                    </figure>
+                    <div>
+                      <h4>Liam Carter</h4>
+                      <h5 class="gradient-text">@liam_c</h5>
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <p class="clr-gray fs-4 lh-base">
+                      The performance is top-notch. I’ve hosted multiple games
+                      with zero downtime. Prices are fair and the quality is
+                      unmatched.
+                    </p>
+                  </div>
+                  <div>
+                    <span
+                      ><i class="fa-solid fa-star fs-4 clr-yellow"></i
+                    ></span>
+                    <span
+                      ><i class="fa-solid fa-star fs-4 clr-yellow"></i
+                    ></span>
+                    <span
+                      ><i class="fa-solid fa-star fs-4 clr-yellow"></i
+                    ></span>
+                    <span><i class="fa-solid fa-star fs-4 clr-gray"></i></span>
+                    <span><i class="fa-solid fa-star fs-4 clr-gray"></i></span>
+                  </div>
+                </div>
+              </li>
+            </ul>
           </div>
-
-          <ul class="row g-4">
-            <li class="col-lg-4">
-              <div class="card-wrapper h-100 p-5 rounded-48">
-                <div class="card-top d-flex align-items-center gap-4 mb-4">
-                  <figure class="client-pic">
-                    <img
-                      src="assets/images/3d-animation-character.png"
-                      alt="Client 3d Character"
-                      loading="lazy"
-                      class="cover"
-                    />
-                  </figure>
-                  <div>
-                    <h4 class="client-name">Seif Hossam</h4>
-                    <h5 class="client-username gradient-text">
-                      @seifhossam001
-                    </h5>
-                  </div>
-                </div>
-                <div class="card-body mb-4">
-                  <p class="clr-gray fs-4 lh-base">
-                    I've been using this game hosting platform for months, and
-                    it's been fantastic. The servers are fast, stable, and easy
-                    to manage.
-                  </p>
-                </div>
-                <div class="card-bottom">
-                  <span><i class="fa-solid fa-star fs-4 clr-yellow"></i></span>
-                  <span><i class="fa-solid fa-star fs-4 clr-yellow"></i></span>
-                  <span><i class="fa-solid fa-star fs-4 clr-yellow"></i></span>
-                  <span><i class="fa-solid fa-star fs-4 clr-yellow"></i></span>
-                  <span><i class="fa-solid fa-star fs-4 clr-gray"></i></span>
-                </div>
-              </div>
-            </li>
-
-            <li class="col-lg-4">
-              <div class="card-wrapper h-100 p-5 rounded-48">
-                <div class="card-top d-flex align-items-center gap-4 mb-4">
-                  <figure class="client-pic">
-                    <img
-                      src="assets/images/3d-animation-character.png"
-                      alt="Client 3d Character"
-                      loading="lazy"
-                      class="cover"
-                    />
-                  </figure>
-                  <div>
-                    <h4 class="client-name">Amira Khaled</h4>
-                    <h5 class="client-username gradient-text">@amira_k</h5>
-                  </div>
-                </div>
-                <div class="card-body mb-4">
-                  <p class="clr-gray fs-4 lh-base">
-                    Customer support is excellent! They helped me set up my
-                    first server within minutes. Highly recommend for beginners
-                    and pros alike.
-                  </p>
-                </div>
-                <div class="card-bottom">
-                  <span><i class="fa-solid fa-star fs-4 clr-yellow"></i></span>
-                  <span><i class="fa-solid fa-star fs-4 clr-yellow"></i></span>
-                  <span><i class="fa-solid fa-star fs-4 clr-yellow"></i></span>
-                  <span><i class="fa-solid fa-star fs-4 clr-yellow"></i></span>
-                  <span><i class="fa-solid fa-star fs-4 clr-yellow"></i></span>
-                </div>
-              </div>
-            </li>
-
-            <li class="col-lg-4">
-              <div class="card-wrapper h-100 p-5 rounded-48">
-                <div class="card-top d-flex align-items-center gap-4 mb-4">
-                  <figure class="client-pic">
-                    <img
-                      src="assets/images/3d-animation-character.png"
-                      alt="Client 3d Character"
-                      loading="lazy"
-                      class="cover"
-                    />
-                  </figure>
-                  <div>
-                    <h4 class="client-name">Liam Carter</h4>
-                    <h5 class="client-username gradient-text">@liam_c</h5>
-                  </div>
-                </div>
-                <div class="card-body mb-4">
-                  <p class="clr-gray fs-4 lh-base">
-                    The performance is top-notch. I’ve hosted multiple games
-                    with zero downtime. Prices are fair and the quality is
-                    unmatched.
-                  </p>
-                </div>
-                <div class="card-bottom">
-                  <span><i class="fa-solid fa-star fs-4 clr-yellow"></i></span>
-                  <span><i class="fa-solid fa-star fs-4 clr-yellow"></i></span>
-                  <span><i class="fa-solid fa-star fs-4 clr-yellow"></i></span>
-                  <span><i class="fa-solid fa-star fs-4 clr-gray"></i></span>
-                  <span><i class="fa-solid fa-star fs-4 clr-gray"></i></span>
-                </div>
-              </div>
-            </li>
-          </ul>
 
           <div class="nav-btns d-flex gap-4 justify-content-center mt-5">
             <button class="button primary-btn rounded-4 px-4 py-3">
@@ -606,7 +808,11 @@
     </main>
 
     <footer>
-      <div class="main-container">
+      <div
+        class="main-container"
+        data-animate="fadeInUp"
+        data-animate-delay="200"
+      >
         <div class="row g-4">
           <div class="col-lg-4 mt-0">
             <button class="logo flex-center">
@@ -627,15 +833,15 @@
             <div class="col-lg-4 col-6">
               <h4 class="nav-title">Other Pages</h4>
               <ul>
-                <li><a href="">Pricing</a></li>
-                <li><a href="">Games</a></li>
+                <li><a href="pricing-plans.html">Pricing</a></li>
+                <li><a href="#">Games</a></li>
               </ul>
             </div>
             <div class="col-lg-4 col-6">
               <h4 class="nav-title">Other Pages</h4>
               <ul>
-                <li><a href="">FAQs</a></li>
-                <li><a href="">Contact Us</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
               </ul>
             </div>
             <div class="col-lg-4 col-6">
@@ -685,5 +891,7 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/testimonial-slider.js"></script>
   </body>
 </html>

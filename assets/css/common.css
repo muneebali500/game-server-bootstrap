@@ -1,3 +1,100 @@
+header {
+  height: 15rem;
+}
+
+.logo {
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+  padding: 6px;
+  background-image: var(--gradient-primary);
+  border: var(--border);
+  filter: drop-shadow(8px);
+}
+
+.menu {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  background: var(--gradient-primary);
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: 500;
+  font-size: 1.4rem;
+  transition: all 0.3s ease;
+}
+
+.menu a:hover {
+  color: #ffcc00;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+}
+
+footer {
+  position: relative;
+  overflow: hidden;
+  padding: 8rem 0 4rem;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 60%;
+  background: var(--bg-gradient);
+  z-index: -1;
+  filter: blur(60px);
+}
+
+footer li a {
+  color: var(--clr-gray);
+  text-decoration: none;
+  font-size: 1.4rem;
+  padding: 0.8rem 0;
+  display: inline-block;
+  transition: 0.3s linear;
+}
+
+footer li a:hover {
+  color: #fff;
+}
+
+footer .nav-title {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+footer .copyright-text {
+  border-top: 2.33px solid transparent;
+  border-image: linear-gradient(#2a1e3f, #ffffff, #2a1e3f);
+  border-image-slice: 1;
+}
+
+footer .camera-pic {
+  opacity: 5%;
+  width: 80rem;
+  height: 65rem;
+  top: 56%;
+  left: -5%;
+  transform: scaleX(2.3);
+  mix-blend-mode: screen;
+  z-index: -1;
+}
+
 .ellipse {
   content: "";
   position: absolute;
@@ -19,6 +116,7 @@
   height: 49rem;
   width: 75rem;
   opacity: 3%;
+  z-index: -1;
 }
 .virtual-camera-right {
   position: absolute;
@@ -28,6 +126,7 @@
   height: 65rem;
   width: 75rem;
   opacity: 3%;
+  z-index: -1;
 }
 
 #hero-common .breadcrumb-item + .breadcrumb-item::before {

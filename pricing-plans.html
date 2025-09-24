@@ -27,15 +27,19 @@
       crossorigin="anonymous"
     />
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
     <link rel="stylesheet" href="assets/css/globals.css" />
-    <link rel="stylesheet" href="assets/css/index.css" />
     <link rel="stylesheet" href="assets/css/common.css" />
     <link rel="stylesheet" href="assets/css/pricing.css" />
   </head>
   <body>
     <main>
       <div id="hero-common" class="position-relative overflow-hidden mb-5">
-        <header class="flex-center">
+        <header class="flex-center position-relative">
           <div class="main-container">
             <div class="flex-center">
               <button class="flex-center logo">
@@ -46,6 +50,12 @@
                   class="w-75"
                 />
               </button>
+
+              <nav class="menu" id="menu">
+                <a href="index.html">Home</a>
+                <a href="contact.html">Contact</a>
+                <a href="faqs.html">Faqs</a>
+              </nav>
             </div>
           </div>
         </header>
@@ -54,11 +64,23 @@
           <div class="main-container">
             <div class="row">
               <div class="content-wrap">
-                <h1 class="section-heading text-center mb-4">Pricing Plans</h1>
-                <nav aria-label="breadcrumb">
+                <h1
+                  class="section-heading text-center mb-4"
+                  data-animate="fadeInUp"
+                  data-animate-delay="100"
+                >
+                  Pricing Plans
+                </h1>
+                <nav
+                  aria-label="breadcrumb"
+                  data-animate="fadeInUp"
+                  data-animate-delay="200"
+                >
                   <ol class="breadcrumb d-flex gap-1 justify-content-center">
                     <li class="breadcrumb-item">
-                      <a href="#" class="text-decoration-none clr-gray fs-2"
+                      <a
+                        href="index.html"
+                        class="text-decoration-none clr-gray fs-2"
                         >Home</a
                       >
                     </li>
@@ -131,13 +153,27 @@
       <section id="slots-pricing" class="section-padding">
         <div class="main-container">
           <div>
-            <h4 class="section-subheading">Configure Slots</h4>
-            <h2 class="section-heading">
+            <h4
+              class="section-subheading"
+              data-animate="fadeInUp"
+              data-animate-delay="100"
+            >
+              Configure Slots
+            </h4>
+            <h2
+              class="section-heading"
+              data-animate="fadeInUp"
+              data-animate-delay="200"
+            >
               Enter the number of Slots for your game server
             </h2>
           </div>
 
-          <div class="slider-container">
+          <div
+            class="slider-container"
+            data-animate="zoomIn"
+            data-animate-delay="300"
+          >
             <div class="slider-track"></div>
             <input
               type="range"
@@ -149,7 +185,11 @@
             />
           </div>
 
-          <ul class="price-labels">
+          <ul
+            class="price-labels"
+            data-animate="zoomIn"
+            data-animate-delay="300"
+          >
             <li class="price-point" data-index="0">
               <span class="price">Free</span>
               <span class="slots">250 slots</span>
@@ -176,12 +216,22 @@
             </li>
           </ul>
 
-          <div class="total-price">
+          <div
+            class="total-price"
+            data-animate="zoomIn"
+            data-animate-delay="300"
+          >
             <span class="total-label">Total Price :</span>
             <span class="total-amount">$102</span>
           </div>
 
-          <button class="button primary-btn">Choose Plan</button>
+          <button
+            class="button primary-btn"
+            data-animate="fadeInUp"
+            data-animate-delay="200"
+          >
+            Choose Plan
+          </button>
         </div>
       </section>
 
@@ -191,29 +241,63 @@
       >
         <div class="main-container">
           <div>
-            <h4 class="section-subheading">Durations</h4>
-            <h2 class="section-heading">
+            <h4
+              class="section-subheading"
+              data-animate="fadeInUp"
+              data-animate-delay="100"
+            >
+              Durations
+            </h4>
+            <h2
+              class="section-heading"
+              data-animate="fadeInUp"
+              data-animate-delay="200"
+            >
               Choose durations for your game server
             </h2>
           </div>
 
           <ul class="row g-4">
-            <li class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <li
+              class="col-6 col-md-4 col-lg-3 col-xl-2"
+              data-animate="fadeInUp"
+              data-animate-delay="100"
+            >
               <button class="duration-btn">1 Day</button>
             </li>
-            <li class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <li
+              class="col-6 col-md-4 col-lg-3 col-xl-2"
+              data-animate="fadeInUp"
+              data-animate-delay="200"
+            >
               <button class="duration-btn active">3 Day</button>
             </li>
-            <li class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <li
+              class="col-6 col-md-4 col-lg-3 col-xl-2"
+              data-animate="fadeInUp"
+              data-animate-delay="300"
+            >
               <button class="duration-btn">7 Day</button>
             </li>
-            <li class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <li
+              class="col-6 col-md-4 col-lg-3 col-xl-2"
+              data-animate="fadeInUp"
+              data-animate-delay="400"
+            >
               <button class="duration-btn">30 Day</button>
             </li>
-            <li class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <li
+              class="col-6 col-md-4 col-lg-3 col-xl-2"
+              data-animate="fadeInUp"
+              data-animate-delay="500"
+            >
               <button class="duration-btn">5 Day</button>
             </li>
-            <li class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <li
+              class="col-6 col-md-4 col-lg-3 col-xl-2"
+              data-animate="fadeInUp"
+              data-animate-delay="600"
+            >
               <button class="duration-btn">6 Day</button>
             </li>
           </ul>
@@ -252,82 +336,152 @@
       <section id="locations-pricing" class="section-padding">
         <div class="main-container">
           <div>
-            <h4 class="section-subheading">Available Locations</h4>
-            <h2 class="section-heading">
+            <h4
+              class="section-subheading"
+              data-animate="fadeInUp"
+              data-animate-delay="100"
+            >
+              Available Locations
+            </h4>
+            <h2
+              class="section-heading"
+              data-animate="fadeInUp"
+              data-animate-delay="200"
+            >
               Choose server location for your game server
             </h2>
           </div>
 
           <ul class="row g-4 mb-5">
-            <li class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <li
+              class="col-6 col-md-4 col-lg-3 col-xl-2"
+              data-animate="fadeInUp"
+              data-animate-delay="100"
+            >
               <button class="location-btn">
                 <span class="flag">🏁</span>London, England
               </button>
             </li>
-            <li class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <li
+              class="col-6 col-md-4 col-lg-3 col-xl-2"
+              data-animate="fadeInUp"
+              data-animate-delay="200"
+            >
               <button class="location-btn">
                 <span class="flag">🏁</span>London, England
               </button>
             </li>
-            <li class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <li
+              class="col-6 col-md-4 col-lg-3 col-xl-2"
+              data-animate="fadeInUp"
+              data-animate-delay="300"
+            >
               <button class="location-btn">
                 <span class="flag">🏁</span>London, England
               </button>
             </li>
-            <li class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <li
+              class="col-6 col-md-4 col-lg-3 col-xl-2"
+              data-animate="fadeInUp"
+              data-animate-delay="400"
+            >
               <button class="location-btn active">
                 <span class="flag">🏁</span>London, England
               </button>
             </li>
-            <li class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <li
+              class="col-6 col-md-4 col-lg-3 col-xl-2"
+              data-animate="fadeInUp"
+              data-animate-delay="600"
+            >
               <button class="location-btn">
                 <span class="flag">🏁</span>London, England
               </button>
             </li>
-            <li class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <li
+              class="col-6 col-md-4 col-lg-3 col-xl-2"
+              data-animate="fadeInUp"
+              data-animate-delay="500"
+            >
               <button class="location-btn">
                 <span class="flag">🏁</span>London, England
               </button>
             </li>
-            <li class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <li
+              class="col-6 col-md-4 col-lg-3 col-xl-2"
+              data-animate="fadeInUp"
+              data-animate-delay="700"
+            >
               <button class="location-btn">
                 <span class="flag">🏁</span>London, England
               </button>
             </li>
-            <li class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <li
+              class="col-6 col-md-4 col-lg-3 col-xl-2"
+              data-animate="fadeInUp"
+              data-animate-delay="400"
+            >
               <button class="location-btn">
                 <span class="flag">🏁</span>London, England
               </button>
             </li>
-            <li class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <li
+              class="col-6 col-md-4 col-lg-3 col-xl-2"
+              data-animate="fadeInUp"
+              data-animate-delay="900"
+            >
               <button class="location-btn">
                 <span class="flag">🏁</span>London, England
               </button>
             </li>
-            <li class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <li
+              class="col-6 col-md-4 col-lg-3 col-xl-2"
+              data-animate="fadeInUp"
+              data-animate-delay="300"
+            >
               <button class="location-btn">
                 <span class="flag">🏁</span>London, England
               </button>
             </li>
-            <li class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <li
+              class="col-6 col-md-4 col-lg-3 col-xl-2"
+              data-animate="fadeInUp"
+              data-animate-delay="500"
+            >
               <button class="location-btn">
                 <span class="flag">🏁</span>London, England
               </button>
             </li>
-            <li class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <li
+              class="col-6 col-md-4 col-lg-3 col-xl-2"
+              data-animate="fadeInUp"
+              data-animate-delay="1000"
+            >
               <button class="location-btn">
                 <span class="flag">🏁</span>London, England
               </button>
             </li>
           </ul>
 
-          <button class="button primary-btn">Order Now</button>
+          <a href="login.html">
+            <button
+              class="button primary-btn"
+              data-animate="fadeInUp"
+              data-animate-delay="300"
+            >
+              Order Now
+            </button>
+          </a>
         </div>
       </section>
     </main>
 
     <footer>
-      <div class="main-container">
+      <div
+        class="main-container"
+        data-animate="fadeInUp"
+        data-animate-delay="200"
+      >
         <div class="row g-4">
           <div class="col-lg-4 mt-0">
             <button class="logo flex-center">
@@ -348,15 +502,15 @@
             <div class="col-lg-4 col-6">
               <h4 class="nav-title">Other Pages</h4>
               <ul>
-                <li><a href="">Pricing</a></li>
-                <li><a href="">Games</a></li>
+                <li><a href="pricing-plans.html">Pricing</a></li>
+                <li><a href="#">Games</a></li>
               </ul>
             </div>
             <div class="col-lg-4 col-6">
               <h4 class="nav-title">Other Pages</h4>
               <ul>
-                <li><a href="">FAQs</a></li>
-                <li><a href="">Contact Us</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
               </ul>
             </div>
             <div class="col-lg-4 col-6">
@@ -407,5 +561,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="assets/js/pricing.js"></script>
+    <script src="assets/js/index.js"></script>
   </body>
 </html>

@@ -1,18 +1,3 @@
-header {
-  height: 15rem;
-}
-
-.logo {
-  height: 56px;
-  width: 56px;
-  border-radius: 50%;
-  padding: 6px;
-  background-image: var(--gradient-primary);
-  border: var(--border);
-  filter: drop-shadow(8px);
-}
-
-/* ///////////////////// HERO HOME STYLE ////////////// */
 #hero-home {
   min-height: 70rem;
   position: relative;
@@ -99,7 +84,6 @@ header {
   background-image: linear-gradient(#00001000, #000010);
 }
 
-/* ///////////////////// GAMES SECTION STYLE ////////////// */
 #games-home {
   position: relative;
 }
@@ -142,16 +126,26 @@ header {
   right: 8%;
 }
 
-/* ////////////////// TESTIMONIALS SECTION STYLE //////////// */
-#testimonials-home {
+.testimonials-slider-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.testimonials-list {
+  display: flex;
+  flex-wrap: nowrap;
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+.testimonials-list li {
+  flex: 0 0 calc(100% / 3);
+  max-width: calc(100% / 3);
 }
 
 #testimonials-home .card-wrapper {
   border: 2px solid #ffffff3d;
   box-shadow: 0 0 9.99px #ffffff0f;
-}
-
-#testimonials-home .card-top {
 }
 
 #testimonials-home .client-pic {
@@ -160,79 +154,6 @@ header {
   border-radius: 50%;
   background-color: #e0c9d8;
   overflow: hidden;
-}
-
-#testimonials-home .client-name {
-}
-
-#testimonials-home .client-username {
-}
-
-#testimonials-home .card-body {
-}
-
-#testimonials-home .client-desc {
-}
-
-#testimonials-home .card-bottom {
-}
-
-/* //////////////////// FOOTER STYLES ///////////////// */
-/* ///////////////////////////////////////////////////// */
-footer {
-  position: relative;
-  overflow: hidden;
-  padding: 8rem 0 4rem;
-}
-
-footer::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  height: 60%;
-  background: var(--bg-gradient);
-  z-index: -1;
-  filter: blur(60px);
-}
-
-footer li a {
-  color: var(--clr-gray);
-  text-decoration: none;
-  font-size: 1.4rem;
-  padding: 0.8rem 0;
-  display: inline-block;
-  transition: 0.3s linear;
-}
-
-footer li a:hover {
-  color: #fff;
-}
-
-footer .nav-title {
-  color: #fff;
-  font-weight: 600;
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-}
-
-footer .copyright-text {
-  border-top: 2.33px solid transparent;
-  border-image: linear-gradient(#2a1e3f, #ffffff, #2a1e3f);
-  border-image-slice: 1;
-}
-
-footer .camera-pic {
-  opacity: 5%;
-  width: 80rem;
-  height: 65rem;
-  top: 56%;
-  left: -5%;
-  transform: scaleX(2.3);
-  mix-blend-mode: screen;
-  z-index: -1;
 }
 
 @media (max-width: 991px) {

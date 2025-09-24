@@ -27,14 +27,18 @@
       crossorigin="anonymous"
     />
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
     <link rel="stylesheet" href="assets/css/globals.css" />
-    <link rel="stylesheet" href="assets/css/index.css" />
     <link rel="stylesheet" href="assets/css/common.css" />
   </head>
   <body>
     <main>
       <div id="hero-common" class="position-relative overflow-hidden mb-5">
-        <header class="flex-center">
+        <header class="flex-center position-relative">
           <div class="main-container">
             <div class="flex-center">
               <button class="flex-center logo">
@@ -45,6 +49,12 @@
                   class="w-75"
                 />
               </button>
+
+              <nav class="menu" id="menu">
+                <a href="index.html">Home</a>
+                <a href="contact.html">Contact</a>
+                <a href="faqs.html">Faqs</a>
+              </nav>
             </div>
           </div>
         </header>
@@ -53,11 +63,23 @@
           <div class="main-container">
             <div class="row">
               <div class="content-wrap">
-                <h1 class="section-heading text-center mb-4">FAQs</h1>
-                <nav aria-label="breadcrumb">
+                <h1
+                  class="section-heading text-center mb-4"
+                  data-animate="fadeInUp"
+                  data-animate-delay="100"
+                >
+                  FAQs
+                </h1>
+                <nav
+                  aria-label="breadcrumb"
+                  data-animate="fadeInUp"
+                  data-animate-delay="200"
+                >
                   <ol class="breadcrumb d-flex gap-1 justify-content-center">
                     <li class="breadcrumb-item">
-                      <a href="#" class="text-decoration-none clr-gray fs-2"
+                      <a
+                        href="index.html"
+                        class="text-decoration-none clr-gray fs-2"
                         >Home</a
                       >
                     </li>
@@ -127,10 +149,14 @@
         <div class="ellipse"></div>
       </div>
 
-      <section id="faq-section" class="faq-section section-padding">
+      <section class="section-padding">
         <div class="main-container">
           <div class="accordion accordion-flush" id="faqAccordion">
-            <div class="accordion-item mb-5">
+            <div
+              class="accordion-item mb-5"
+              data-animate="fadeInLeft"
+              data-animate-delay="200"
+            >
               <h2 class="accordion-header" id="headingOne">
                 <button
                   class="accordion-button text-white collapsed"
@@ -164,7 +190,11 @@
               </div>
             </div>
 
-            <div class="accordion-item mb-5">
+            <div
+              class="accordion-item mb-5"
+              data-animate="fadeInRight"
+              data-animate-delay="300"
+            >
               <h2 class="accordion-header" id="headingTwo">
                 <button
                   class="accordion-button text-white"
@@ -198,7 +228,11 @@
               </div>
             </div>
 
-            <div class="accordion-item mb-5">
+            <div
+              class="accordion-item mb-5"
+              data-animate="fadeInLeft"
+              data-animate-delay="400"
+            >
               <h2 class="accordion-header" id="headingThree">
                 <button
                   class="accordion-button collapsed"
@@ -232,7 +266,11 @@
               </div>
             </div>
 
-            <div class="accordion-item">
+            <div
+              class="accordion-item"
+              data-animate="fadeInRight"
+              data-animate-delay="500"
+            >
               <h2 class="accordion-header" id="headingFour">
                 <button
                   class="accordion-button collapsed"
@@ -271,7 +309,11 @@
     </main>
 
     <footer>
-      <div class="main-container">
+      <div
+        class="main-container"
+        data-animate="fadeInUp"
+        data-animate-delay="200"
+      >
         <div class="row g-4">
           <div class="col-lg-4 mt-0">
             <button class="logo flex-center">
@@ -292,15 +334,15 @@
             <div class="col-lg-4 col-6">
               <h4 class="nav-title">Other Pages</h4>
               <ul>
-                <li><a href="">Pricing</a></li>
-                <li><a href="">Games</a></li>
+                <li><a href="pricing-plans.html">Pricing</a></li>
+                <li><a href="#">Games</a></li>
               </ul>
             </div>
             <div class="col-lg-4 col-6">
               <h4 class="nav-title">Other Pages</h4>
               <ul>
-                <li><a href="">FAQs</a></li>
-                <li><a href="">Contact Us</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
               </ul>
             </div>
             <div class="col-lg-4 col-6">
@@ -350,5 +392,6 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script src="assets/js/index.js"></script>
   </body>
 </html>
